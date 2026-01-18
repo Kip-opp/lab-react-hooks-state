@@ -1,5 +1,116 @@
-/* TODO (optional): Style the product card container */
+/* Container for the individual product card */
+.card {
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden; 
+  height: 100%; 
+  text-align: center;
+}
 
-/* TODO (optional): Add special styling for out-of-stock products */
+/* Hover effect */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-/* TODO (optional): Style the add/remove button */
+/* Dark mode support */
+:global(.dark-mode) .card {
+  background-color: #333;
+  border-color: #555;
+  color: white;
+}
+
+/* --- PERPLEXITY STYLE PRODUCT NAMES --- */
+.card h3 {
+  /* Perplexity Cyan/Blue */
+  color: #2093D6; 
+  font-weight: 800; 
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  
+  /* Underline styling */
+  text-decoration: underline;
+  text-decoration-color: #2093D6; 
+  text-underline-offset: 4px; 
+}
+
+/* Lighter Blue for Dark Mode */
+:global(.dark-mode) .card h3 {
+  color: #52B5F1;
+  text-decoration-color: #52B5F1;
+}
+
+/* Price styling */
+.price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #B12704; /* Amazon price color */
+}
+
+:global(.dark-mode) .price {
+  color: #ff9900;
+}
+
+/* --- OUT OF STOCK STYLING (Fixed for Visibility) --- */
+.outOfStock {
+  opacity: 0.8; /* Keep it mostly opaque so we can read it */
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+}
+
+/* Dark mode dimmed background */
+:global(.dark-mode) .outOfStock {
+  background-color: #2a2a2a;
+  opacity: 0.7;
+}
+
+/* The Overlay "Badge" - instead of covering the whole card, we put a strip */
+.outOfStock::after {
+  content: "OUT OF STOCK";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: rgba(255, 50, 50, 0.9); /* Red strip */
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transform: translateY(-50%) rotate(-10deg); /* Angled strip */
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* --- BUTTON STYLING --- */
+.addButton {
+  background-color: #f0c14b; /* Amazon yellow */
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.addButton:hover {
+  background-color: #ddb347;
+}
+
+/* Disabled Button */
+.addButton:disabled {
+  background-color: #e7e9ec;
+  border-color: #adb1b8;
+  cursor: not-allowed;
+  color: #ccc;
+  display: none; /* Hide button if out of stock (cleaner look with the badge) */
+}

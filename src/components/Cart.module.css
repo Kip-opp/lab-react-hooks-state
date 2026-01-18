@@ -1,0 +1,105 @@
+/* Floating Icon - Top Right Corner */
+.cartIcon {
+  position: fixed;
+  top: 20px;          /* Move to TOP */
+  right: 30px;        /* Keep at RIGHT */
+  width: 50px;
+  height: 50px;
+  background-color: #1DB954 !important; /* Spotify Green */
+  color: white;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.cartIcon:hover { transform: scale(1.1); }
+
+/* Badge for count */
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+/* The Dropdown Tray - Appears below the icon */
+.cartTray {
+  position: fixed;
+  top: 80px;         /* Just below the top icon */
+  right: 30px;       /* Aligned with icon */
+  width: 320px;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  padding: 15px;
+  z-index: 9998;
+  max-height: 70vh;
+  overflow-y: auto;
+  border: 1px solid #eee;
+}
+
+/* Dark Mode Tray */
+:global(.dark-mode) .cartTray {
+  background: #222;
+  color: white;
+  border-color: #444;
+}
+
+.cartHeader {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual Item Row */
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+:global(.dark-mode) .cartItem {
+  border-bottom-color: #444;
+}
+
+/* Remove Button styling */
+.removeBtn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.removeBtn:hover { background: #cc0000; }

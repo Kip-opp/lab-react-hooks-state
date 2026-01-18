@@ -1,42 +1,59 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* src/App.css */
+:root {
+  --spotify-green: #1DB954; 
+}
+
+/* 1. APP WRAPPER (The Fix for Full Page Color) */
+.app-wrapper {
+  min-height: 100vh; /* Cover 100% of the viewport height */
+  width: 100vw;      /* Cover 100% of the viewport width */
+  display: flex;     /* Use flex to center the inner container */
+  justify-content: center; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 2. THEME CLASSES (Applied to wrapper) */
+.light-mode {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #121212; /* Dark Mode Background */
+  color: #ffffff;
+}
+
+/* 3. INNER CONTAINER (The Content Box) */
+.app-container {
+  width: 100%;
+  max-width: 1000px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center headers and grid */
+}
+
+/* 4. TEXT STYLES */
+h1 {
+  color: var(--spotify-green);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 5. CONTROLS */
+.controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* 6. GRID */
+.product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
