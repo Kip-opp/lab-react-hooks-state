@@ -1,107 +1,76 @@
-# Lab: Building a Dynamic Shopping App with React Hooks
+# Dynamic Shopping App with React Hooks
 
-## Introduction
+This project is a small React shopping app built with `useState` to manage UI behavior and user interactions. The app supports theme switching, cart updates, and category-based product filtering while keeping the interface responsive and easy to use. The `useState` hook is the standard React tool for local component state such as toggles, selected filters, and cart contents. [web:301][web:302]
 
-Your company is developing a **new grocery shopping app** to improve the shopping experience for customers. You have been assigned to implement **three key features**:
+## Features
 
-1. **Dark Mode Toggle** – Users can switch between light and dark mode.
-2. **Add to Cart** – Users can add items to the shopping cart.
-3. **Category Filtering** – Users can filter products by category.
+- Dark mode toggle with dynamic button text.
+- Add-to-cart functionality for grocery items.
+- Category filter using a dropdown menu.
+- Optional cart total showing how many items were added.
+- Responsive UI with consistent styling across states.
 
-Your task is to implement these features using **React Hooks (`useState`)** while ensuring the app is functional and visually consistent.
+## Core Functionality
 
----
+### Dark Mode
+Users can switch between light and dark mode using a button. Theme state is managed with `useState`, and the button label updates based on the current mode. [web:301][web:306]
 
-## **Challenge**
-1. Implement a **dark mode toggle**.
-2. Allow users to **add items** from a shopping cart.
-3. Implement **category-based filtering** for the shopping list.
+### Add to Cart
+Each product includes an **Add to Cart** button. When clicked, the selected item is added to the cart and displayed with text such as `Milk is in your cart.` Shopping cart state is commonly modeled as an array in React and updated immutably with state setters. [web:300][web:308]
 
-## **Bonus Challenge**
-4. Display a **cart total** showing the number of items added.
+### Category Filter
+A dropdown allows users to filter visible products by category. When a category is selected, only matching products are rendered. Filtering the rendered product list from state is a common React pattern for simple UI controls. [web:300][web:307]
 
----
+### Bonus: Cart Total
+The application can also display the total number of items currently added to the cart. This total should update automatically as the cart changes. Derived totals like this are typically computed from existing state rather than stored separately when possible. [web:300][web:310]
 
-## **Instructions**
+## Setup
 
-### **1️⃣ Fork and Clone the Repository**
-1. **Fork** the provided GitHub repository.
-2. **Clone** the forked repository to your local machine:
-   ```sh
-   git clone <your-forked-repository-url>
-   cd react-hooks-state-lab
-   ```
-3. Open the project in **VSCode**.
-4. Install dependencies:
-   ```sh
-   npm install
-   ```
-5. Start the development server:
-   ```sh
-   npm run dev
-   ```
+Install dependencies:
 
-### **2️⃣ Implement the Dark Mode Toggle**
-- Implement a **button** that toggles between light and dark mode.
-- The text of the toggle button should change dynamically.
-   - Feel free to also play with styling! However, you'll only be tested on the text of the dark mode toggle button.
-- Use the **useState hook** to manage the current theme.
+```bash
+npm install
+```
 
-### **3️⃣ Implement the Add to Cart Feature**
-- Each product should have an **"Add to Cart"** button.
-- Clicking the button should add the item to the cart.
-- The cart should display a **list of added items** with the text 'Item is in your cart' such as 'Milk is in your cart.'
+Start the development server:
 
-### **4️⃣ Implement the Category Filter**
-- Create a **dropdown menu** to filter products by category.
-- When a user selects a category, **only matching products** should be displayed.
-- Use **state management (`useState`)** to track the selected category.
+```bash
+npm run dev
+```
 
----
+Run the tests:
 
-## **Bonus Challenge: Cart Total**
-- Display a **cart total** showing how many items have been added.
-- The total should update dynamically when items are added.
+```bash
+npm test
+```
 
----
+Vite is a common development setup for React apps and is designed for fast local startup and hot reload. [web:290]
 
-## **Testing and Debugging**
-1. Run the test suite:
-   ```sh
-   npm test
-   ```
-2. Debug any failing tests:
-   - Use **browser developer tools** (`F12 → Console`).
-   - Verify that product cards display correctly.
-   - Ensure filtering and cart updates work as expected.
+## Expected Behavior
 
----
+- The dark mode button toggles the UI theme and updates its label.
+- Clicking **Add to Cart** adds the selected item to the cart display.
+- Selecting a category filters the visible products.
+- The cart total updates dynamically as items are added.
+- The app remains functional and visually consistent across interactions.
 
-## **Version Control**
-1. Initialize a Git repository:
-   ```sh
-   git init
-   ```
-2. Regularly commit your changes:
-   ```sh
-   git add .
-   git commit -m "Initial shopping app setup"
-   ```
-3. Push to GitHub:
-   ```sh
-   git push origin main
-   ```
+## Recommended Structure
 
----
+```bash
+src/
+├── App.jsx
+├── components/
+│   ├── Header.jsx
+│   ├── ProductList.jsx
+│   ├── ProductCard.jsx
+│   ├── Cart.jsx
+│   └── CategoryFilter.jsx
+└── styles/
+```
 
-### **✅ Submission**
-- Submit your project as a **GitHub repository** to CodeGrade.
 
----
+## Resources
 
-## **Resources**
 - [React Docs: useState](https://react.dev/reference/react/useState)
-- [Material UI Documentation](https://mui.com)
-- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
-- [Jest Testing Framework](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com)
+- [Jest Documentation](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/)
